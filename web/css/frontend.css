@@ -1,0 +1,32 @@
+body, html {
+    height: 100%;
+    background-color: #e9ebee;
+}
+
+.frontend {
+    /* The image used */
+    background-image: url("../images/4ea1221c-78f0-4952-a3c6-f16acb33b57f.jpg");
+
+    /* Set a specific height */
+    height: 65%;
+
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin-top: -2%;
+}
+
+.frontend-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.navbar-flat {
+    border-radius: 0px;
+}
