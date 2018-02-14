@@ -29,6 +29,11 @@ class HelloController extends Controller
         echo $message . "\n";
     }
 
+    public function actionBd($jam)
+    {
+    	$this->stdout((9999 - $jam)**2);
+    }
+
     public function actionData()
     {
         $konten = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

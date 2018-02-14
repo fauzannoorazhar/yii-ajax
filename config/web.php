@@ -60,6 +60,7 @@ $config = [
         ],
         'db' => require(__DIR__ . '/db.php'),
         'request' => [
+            'enableCsrfValidation' => false,
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser',
             ],

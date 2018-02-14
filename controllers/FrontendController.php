@@ -8,7 +8,11 @@ class FrontendController extends \yii\web\Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+    	$komentar = new \app\models\ArtikelKomentar();
+
+        return $this->render('index',[
+        	'komentar' => $komentar
+        ]);
     }
 
 }

@@ -59,7 +59,7 @@ class RestController extends Controller
                             <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments
                             (5)</a></li>
                         </ul>
-                        <input class="form-control input-sm" type="text" placeholder="Type a comment">
+                        <input id="artikel-'.$data->id.'" class="form-control input-sm" type="text" placeholder="Type a comment">
                     </div>
                 </div>
             </div>';
@@ -72,12 +72,11 @@ class RestController extends Controller
              </div>';
     }
 
-    public function actionCountArtikel()
+    public function actionCreateKomentar()
     {
-        Yii::$app->response->format = Response::FORMAT_JSON;
+        $param1 = Yii::$app->request->post('param1', 'string');
+        $param2 = Yii::$app->request->post('param2', null);
 
-        $artikel = Artikel::find()->count();
-
-        return $artikel;
+        print_r($param1);
     }
 }
