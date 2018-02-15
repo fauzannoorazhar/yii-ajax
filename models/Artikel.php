@@ -120,6 +120,11 @@ class Artikel extends \yii\db\ActiveRecord
         }
     }
 
+    public static function getCountArtikel()
+    {
+        return self::find()->count();
+    }
+
     public function test()
     {
         return "string";

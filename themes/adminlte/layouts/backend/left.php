@@ -38,6 +38,7 @@
 
                     ['label' => 'MENU NAVIGASI', 'options' => ['class' => 'header']],
                     ['label' => 'Dashboard', 'icon' => 'home', 'url' => ['/admin/index']],
+                    ['label' => 'Test Ajax', 'icon' => 'home', 'url' => ['/admin/test-ajax']],
 
                     ['label' => 'Artikel', 'icon' => 'home', 'url' => ['/artikel/']],
                     ['label' => 'Artikel Status', 'icon' => 'home', 'url' => ['/artikel-status/']],

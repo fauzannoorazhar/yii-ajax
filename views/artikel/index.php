@@ -18,12 +18,17 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
     <div class="box-body">
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?= Html::beginForm(['/artikel/update-all'],'post');?>
         <?php Pjax::begin(); ?>    
             <?= GridView::widget([
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
                 'columns' => [
+                    [
+                        'class' => 'yii\grid\CheckboxColumn',
+                        'headerOptions' => ['style' => 'text-align:center;'],
+                        'contentOptions' => ['style' => 'text-align:center'],
+                    ],
                     [
                         'class' => 'yii\grid\SerialColumn',
                         'header' => 'No',
@@ -61,6 +66,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                 ],
             ]); ?>
-        <?php Pjax::end(); ?>    
+        <?php Pjax::end(); ?>
+
+        <?= Html::submitButton('Send', ['class' => 'btn btn-info',]);?>
+
+    <?= Html::endForm();?>   
     </div>
 </div>

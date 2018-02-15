@@ -132,6 +132,24 @@ class ArtikelController extends Controller
 
     }
 
+    public function actionUpdateAll()
+    {
+        $action = Yii::$app->request->post('action');
+
+        $selection = (array)Yii::$app->request->post('selection');
+
+        foreach ($selection as $value) {
+            $models[] = Artikel::findOne((int)$value);
+
+        }
+
+        return $this->render('update-all',[
+            'models' => $models
+        ]);
+
+
+    }
+
     /**
      * Deletes an existing Artikel model.
      * If deletion is successful, the browser will be redirected to the 'index' page.

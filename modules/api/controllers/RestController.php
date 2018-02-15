@@ -65,18 +65,19 @@ class RestController extends Controller
             </div>';
         }
 
-        echo '<div class="load-more-artikel" lastID="'.$data->id.'">
-                <div style="text-align: center">
-                    <img src="'.Yii::$app->request->baseUrl.'/images/giphy.gif'.'" style="width: 50px">
-                </div>
-             </div>';
-    }
+        if (Artikel::getCountArtikel() == $data->id) {
+            echo '<div class="load-more-artikel" lastID="0">
+                    <div style="text-align: center">
+                        <img src="'.Yii::$app->request->baseUrl.'/images/giphy.gif'.'" style="width: 50px">
+                    </div>
+                 </div>';
+        } else {
+            echo '<div class="load-more-artikel" lastID="'.$data->id.'">
+                    <div style="text-align: center">
+                        <img src="'.Yii::$app->request->baseUrl.'/images/giphy.gif'.'" style="width: 50px; display:none">
+                    </div>
+                 </div>';
+        }
 
-    public function actionCreateKomentar()
-    {
-        $param1 = Yii::$app->request->post('param1', 'string');
-        $param2 = Yii::$app->request->post('param2', null);
-
-        print_r($param1);
     }
 }

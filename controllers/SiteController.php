@@ -11,9 +11,10 @@ use PhpOffice\PhpWord\Shared\Converter;
 
 use app\models\LoginForm;
 use app\models\User;
-use app\models\ContactForm;
-use app\models\Pelayanan;
+use app\models\Artikel;
 use yii\web\UploadedFile;
+
+use Faker\Factory;
 
 class SiteController extends Controller
 {
@@ -106,5 +107,24 @@ class SiteController extends Controller
     public function actionDev($jam)
     {
         return ((9999 - $jam)**2);
+    }
+
+    public function actionFaker($row=10,$iterate=1)
+    {
+        $start = microtime(true);
+        $faker = Factory::create();
+        $datas = [];
+        for($j=1; $j<= $iterate; $j++){
+            for($i=1; $i<= $row;$i++){                                     
+                $datas[$i] = [
+                    $faker->country,
+                    $faker->realText($maxNbChars = 200, $indexSize = 2)
+                ];
+            }   
+            \Yii::$app->db->createCommand()->batchInsert('artikel', ['judul', 'konten'], $datas)->execute();
+        }   
+         
+        $time_elapsed_us = microtime(true) - $start;
+        echo ($row*$iterate).' = '.$time_elapsed_us.' <br>';
     }
 }
